@@ -14,7 +14,7 @@ import {join} from "path";
 const methodOverride = require("koa-override");
 
 console.info(rootDir);
-
+console.log(process.env.PORT);
 @Configuration({
     ...config,
     httpPort: "127.0.0.1:" + (process.env.PORT || "8083"),
