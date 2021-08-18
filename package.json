@@ -18,6 +18,7 @@
     "@koa/cors": "^3.1.0",
     "@koa/router": "^10.1.0",
     "@tsed/ajv": "^6.62.3",
+    "@tsed/cli": "^3.8.0",
     "@tsed/common": "^6.62.3",
     "@tsed/core": "^6.62.3",
     "@tsed/di": "^6.62.3",
