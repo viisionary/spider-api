@@ -13,8 +13,6 @@ import {join} from "path";
 
 const methodOverride = require("koa-override");
 
-console.info(rootDir);
-console.log(process.env.PORT);
 @Configuration({
     ...config,
     httpPort: process.env.PORT || "8083",
@@ -42,7 +40,8 @@ console.log(process.env.PORT);
     ],
     socketIO: {
         // ... see configuration
-        path: "/socket.io"
+        path: "/socket.io",
+        cors: {origin: ["http://localhost:3000", "https://spider-1256771775.cos-website.ap-guangzhou.myqcloud.com/"]},
     },
     exclude: [
         "**/*.spec.ts"
