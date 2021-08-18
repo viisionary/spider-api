@@ -17,7 +17,7 @@ console.info(rootDir);
 console.log(process.env.PORT);
 @Configuration({
     ...config,
-    httpPort: "127.0.0.1:" + (process.env.PORT || "8083"),
+    httpPort: process.env.PORT || "8083",
     acceptMimes: ["application/json"],
     mount: {
         "/api": [
