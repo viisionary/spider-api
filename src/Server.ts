@@ -8,17 +8,19 @@ import "@tsed/ajv";
 import "@tsed/swagger";
 import {config, rootDir} from "./config";
 import {IndexCtrl} from "./controllers/pages/IndexController";
-import './filters/HttpExceptionFilter'
+import "./filters/HttpExceptionFilter";
 import {join} from "path";
 
 const methodOverride = require("koa-override");
 
-console.info(rootDir)
+console.info(rootDir);
+
+process.env.PORT = "3000"
 
 @Configuration({
     ...config,
-    httpPort: "127.0.0.1:8083",
-    address: 'adf',
+    httpPort: "127.0.0.1:" + process.env.PORT,
+    address: "adf",
     acceptMimes: ["application/json"],
     httpsPort: false, // CHANGE
     mount: {
@@ -44,7 +46,7 @@ console.info(rootDir)
     ],
     socketIO: {
         // ... see configuration
-        path: '/socket.io'
+        path: "/socket.io"
     },
     exclude: [
         "**/*.spec.ts"
@@ -62,6 +64,6 @@ export class Server {
             .use(cors())
             .use(compress())
             .use(methodOverride())
-            .use(bodyParser())
+            .use(bodyParser());
     }
 }
