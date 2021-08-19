@@ -30,7 +30,7 @@ export class MySocketService {
             });
         });
         socket.on("message", (data) => {
-            console.log("收到消息",data);
+            console.log("收到消息", data);
             if (data === "how r u") {
                 socket.send("i m fine, thank u, and u?");
 

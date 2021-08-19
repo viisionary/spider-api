@@ -44,9 +44,9 @@ const methodOverride = require("koa-override");
         cors: {
             origin: [
                 "http://localhost:3000",
-                "https://spider.visionary.top/",
-                "https://spider-visionary.vercel.app/ ",
-                "https://spider-beta.vercel.app/"]
+                "https://spider.visionary.top",
+                "https://spider-visionary.vercel.app ",
+                "https://spider-beta.vercel.app"]
         },
     },
     exclude: [
