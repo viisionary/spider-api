@@ -41,7 +41,13 @@ const methodOverride = require("koa-override");
     socketIO: {
         // ... see configuration
         path: "/socket.io",
-        cors: {origin: ["http://localhost:3000", "https://spider.visionary.top/"]},
+        cors: {
+            origin: [
+                "http://localhost:3000",
+                "https://spider.visionary.top/",
+                "https://spider-visionary.vercel.app/ ",
+                "https://spider-beta.vercel.app/"]
+        },
     },
     exclude: [
         "**/*.spec.ts"
