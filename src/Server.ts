@@ -41,7 +41,7 @@ const methodOverride = require("koa-override");
     socketIO: {
         // ... see configuration
         path: "/socket.io",
-        cors: {origin: ["http://localhost:3000", "https://spider-1256771775.cos-website.ap-guangzhou.myqcloud.com/"]},
+        cors: {origin: ["http://localhost:3000", "https://spider.visionary.top/"]},
     },
     exclude: [
         "**/*.spec.ts"
