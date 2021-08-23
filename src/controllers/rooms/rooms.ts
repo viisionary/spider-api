@@ -8,9 +8,10 @@ export class Rooms {
         // mySocketService = new MySocketService();
 
     }
+
     @Get("/:roomId")
-    joinRoom(@BodyParams("payload") payload:Pick<User, 'id'>,@PathParams("roomId") roomId: string){
-        console.log(payload, roomId)
+    joinRoom(@BodyParams("payload") payload: Pick<User, "id">, @PathParams("roomId") roomId: string) {
+        console.log(payload, roomId);
 
     }
 
@@ -20,8 +21,15 @@ export class Rooms {
 
     @Get("/allo")
     allo() {
-        console.log(123)
+        console.log(123);
         this.mySocketService.helloAll();
         return "is sent";
+    }
+
+    @Get("/users/:roomId")
+    getUsersByRoomId() {
+        console.log(123);
+        this.mySocketService.getBeforeUsers();
+        // return "is sent";
     }
 }

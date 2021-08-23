@@ -19,9 +19,11 @@ export class UserController {
         //     throw (new Unauthorized("密码错误🙅"));
         // }
         const users = await getUserByAuth({password, username});
-        if (isEmpty(users)) {
+        // @ts-ignore
+        if (isEmpty(users.Items) || users.Count === 0) {
             throw (new Unauthorized("密码错误🙅"));
         }
+        console.log(users);
         // @ts-ignore
         const user = _.mapValues(users.Items[0], "S");
 
