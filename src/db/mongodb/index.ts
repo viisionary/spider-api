@@ -51,7 +51,7 @@ export const getUserByAuth: (payload: Pick<User, "username" | "password">) => Pr
 
             return await users.findOne(query);
         } finally {
-            await client.close();
+            // await client.close();
 
         }
     }
