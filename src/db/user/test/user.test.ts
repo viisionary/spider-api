@@ -5,11 +5,11 @@ describe("user db", () => {
     // beforeAll()
     test("增改查", () => {
         // const user
-        updateUser("1", {username: "用户名", avatar: "/111.jpg"}).then((res) => {
-            console.log(res);
-        }).catch((err) => {
-            console.log(err);
-        });
+        // updateUser("1", {username: "用户名", avatar: "/111.jpg"}).then((res) => {
+        //     console.log(res);
+        // }).catch((err) => {
+        //     console.log(err);
+        // });
     });
     test("getUserByAuth", () => {
 
