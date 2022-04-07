@@ -1,7 +1,7 @@
 import {MongoClient} from "mongodb";
 import {User} from "../user/user";
 
-const uri = "mongodb+srv://visionary:0610mm@cluster0.hiwac.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const uri = `mongodb+srv://visionary:${process.env.MONGODB_PASSWORD}@cluster0.hiwac.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, {useNewUrlParser: true, useUnifiedTopology: true});
 // OMXUudoNzDuyAl31CykYKxn4KqPJ9qMb9i6fqcaItPWCvB4IIqMD9qAigeuzWgp5
 export const getUser: (userId: User["id"]) => Promise<User> = async () => {
