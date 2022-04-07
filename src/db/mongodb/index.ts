@@ -19,7 +19,7 @@ export const getUser: (userId: User["id"]) => Promise<User> = async () => {
 
         return await users.findOne(query);
     } finally {
-        await client.close();
+        // await client.close();
     }
 };
 type createUserPayloadType = Pick<User, "username" | "password" | "phoneNumber" | "firstName" | "email" | "lastName">;

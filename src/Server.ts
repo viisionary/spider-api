@@ -47,6 +47,10 @@ const methodOverride = require("koa-override");
                 "https://spider.visionary.top",
                 "https://spider-visionary.vercel.app ",
                 "https://spider-beta.vercel.app",
+                "https://api.visionary.top/",
+                "https://spider-api-viisionary.vercel.app",
+                "https://spider-qudorfr9d-viisionary.vercel.app/",
+                "https://spider-api-git-master-viisionary.vercel.app/",
                 "http://192.168.3.131:3000"]
         },
     },
