@@ -8,3 +8,4 @@ AWS.config.update({
 });
 
 export const dynamodb = new AWS.DynamoDB();
+// mongodb+srv://visionary:<password>@cluster0.hiwac.mongodb.net/myFirstDatabase?retryWrites=true&w=majority

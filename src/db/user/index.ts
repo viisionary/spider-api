@@ -2,7 +2,8 @@ import {dynamodb} from "../connect";
 import {User} from "./user";
 import {v4 as uuidV4} from "uuid";
 
-type createUserPayloadType = Pick<User, "username" | "password" | "phoneNumber" | "firstName" | "email" | "lastName">
+type createUserPayloadType = Pick<User, "username" | "password" | "phoneNumber" | "firstName" | "email" | "lastName">;
+
 export const createUser: (payload: createUserPayloadType) => Promise<Pick<User, "id">> = ({
                                                                                               password,
                                                                                               username,
@@ -10,6 +11,7 @@ export const createUser: (payload: createUserPayloadType) => Promise<Pick<User, 
                                                                                               firstName
                                                                                           }) => {
     const id = uuidV4();
+
     return new Promise((resolve, reject) => {
         dynamodb.putItem({
             TableName: "User", Item: {
@@ -82,7 +84,6 @@ export const updateUser: (userId: User["id"], {}: updateUserPayloadType) => Prom
 };
 
 
-//Promise<USER>
 export const getUser: (userId: User["id"]) => Promise<User> = (userId) => {
     return new Promise((resolve, reject) => {
         dynamodb.getItem({

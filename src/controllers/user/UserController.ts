@@ -1,9 +1,8 @@
 import {BodyParams, Controller, Get, HeaderParams, Patch, PathParams, Post} from "@tsed/common";
 import {Forbidden, Unauthorized} from "@tsed/exceptions";
-import {createUser, getUser, getUserByAuth} from "../../db/user";
 import {User} from "../../db/user/user";
-import _ from "lodash";
 import {isEmpty} from "@tsed/core";
+import {createUser, getUser, getUserByAuth} from "../../db/mongodb";
 
 type loginParams = Pick<User, "password" | "username">;
 type signupParams = Pick<User, "password" | "username" | "firstName" | "lastName"> & { passcode: string };
@@ -13,21 +12,16 @@ type profileType = Omit<User, "password" | "phoneNumber">;
 export class UserController {
     @Post("/login")
     async login(@BodyParams("password") password: string,
-                @BodyParams("username") username: string): Promise<profileType> {
-        // const {password, username} = payload;
-        // if (password === "123456") {
-        //     throw (new Unauthorized("密码错误🙅"));
-        // }
-        const users = await getUserByAuth({password, username});
+                @BodyParams("username") username: string): Promise<string|undefined> {
+
+        const user = await getUserByAuth({password, username});
         // @ts-ignore
-        if (isEmpty(users.Items) || users.Count === 0) {
+        if (isEmpty(user)) {
             throw (new Unauthorized("密码错误🙅"));
         }
-        console.log(users);
-        // @ts-ignore
-        const user = _.mapValues(users.Items[0], "S");
+        console.log(user);
 
-        return user;
+        return user._id;
     }
 
 
@@ -35,9 +29,7 @@ export class UserController {
     async get(
         @PathParams("id") params: { id: string }
     ): Promise<profileType> {
-        const user = await getUser(params.id);
-
-        return _.mapValues(user, "S");
+        return await getUser(params.id);
     }
 
     @Patch("/logout")

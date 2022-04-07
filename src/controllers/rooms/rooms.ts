@@ -21,8 +21,8 @@ export class Rooms {
 
     @Get("/allo")
     allo() {
-        console.log(123);
         this.mySocketService.helloAll();
+
         return "is sent";
     }
 

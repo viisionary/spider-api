@@ -17,15 +17,16 @@ describe("UserController", () => {
 
     afterEach(PlatformTest.reset);
     //
-    // it("should call POST /api/login", async () => {
-    //     console.log(123)
-    //     const response = await request.post("/api/login").expect(200);
-    //
-    //     console.log(response)
-    //     expect(response.text).toEqual("hello");
-    // });
-    it('should call POST /signup', async function () {
-            const response = await request.post('/signup').expect(200);
-            console.log(response)
+    it("should call POST /user/login", async () => {
+        const response = await request.post("/api/user/login").send({
+            username: "visionary",
+            password: "zxcvbnmm"
+        }).expect(200);
+        expect(response.text).toEqual("624e76bab51522ac282c3bc1");
+    });
+
+    it("should call POST /signup", async () => {
+        const response = await request.post("/signup").expect(200);
+        console.log(response);
     });
 });
